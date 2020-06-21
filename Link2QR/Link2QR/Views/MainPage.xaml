@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Link2QR.Views.MainPage"
+             Title="{Binding Title}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Entry Placeholder="Paste here link to code"
+                       Margin="20"
+                       Text="{Binding Link}"
+                       x:Name="linkEntry"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Button Text="Code that!"
+                        HorizontalOptions="Center"
+                        Command="{Binding CodeLinkCommand}"
+                        HeightRequest="60"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              IsVisible="{Binding CodeVisibility}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Source="{Binding Barcode.Source}"
+                   Grid.Row="0"
+                   Margin="15"
+                   HorizontalOptions="Center" />
+
+            <Grid Grid.Row="1"
+                  HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Save as image"
+                        Grid.Column="0"
+                        HeightRequest="60"
+                        Command="{Binding SaveImageCommand}"/>
+                <Button Text="New link"
+                        Grid.Column="1"
+                        Command="{Binding NewLinkCommand}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

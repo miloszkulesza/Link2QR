@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="White"
+             x:Class="Link2QR.Views.FileNameDialog"
+             prism:DialogLayout.RelativeWidthRequest="0.75"
+             prism:DialogLayout.RelativeHeightRequest="0.35">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Label Text="Type filename"
+           Grid.Row="0"
+           FontSize="26"
+           Margin="20" />
+    <Entry Placeholder="File name"
+           Text="{Binding Filename}"
+           Grid.Row="1"
+           Margin="10"
+           x:Name="filename" />
+    <Grid Grid.Row="2" 
+          HorizontalOptions="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button Text="Cancel"
+                Command="{Binding CancelCommand}"
+                Grid.Column="0"
+                Margin="10" />
+        <Button Text="Ok"
+                Command="{Binding CloseDialogCommand}"
+                Grid.Column="1"
+                Margin="10" />
+    </Grid>
+
+</Grid>
